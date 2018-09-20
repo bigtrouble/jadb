@@ -159,7 +159,6 @@ public class JadbDevice {
     }
 
     private int getMode(File file) {
-        //noinspection OctalInteger
         return 0664;
     }
 
