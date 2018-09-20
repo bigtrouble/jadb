@@ -4,10 +4,15 @@ import java.io.*;
 import java.net.Socket;
 import java.nio.charset.Charset;
 
+import lombok.Getter;
+
 public
 class Transport {
 
+	@Getter
     private final OutputStream outputStream;
+	
+	@Getter
     private final InputStream inputStream;
 
     private Transport(OutputStream outputStream, InputStream inputStream) {
@@ -27,10 +32,6 @@ class Transport {
 
     public void readResponseTo(OutputStream output) throws IOException {
         Stream.copy(inputStream, output);
-    }
-
-    public InputStream getInputStream() {
-        return inputStream;
     }
 
     public void verifyResponse() throws IOException, JadbException {
